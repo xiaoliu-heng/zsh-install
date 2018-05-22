@@ -1,6 +1,6 @@
 #!/bin/bash
 user=`whoami`
-if [[  != 'root' ]]; then
+if [[ $user != 'root' ]]; then
 	echo 'Your Password: ' | su root
 fi
 
