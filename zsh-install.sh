@@ -7,7 +7,6 @@ fi
 apt update
 apt install curl zsh wget
 cd ~
-su $user
 mkdir .antigen
 curl -L git.io/antigen > ~/.antigen/antigen.zsh
 wget https://raw.githubusercontent.com/heng19970427/zsh-install/master/zshrc -O ~/.zshrc
