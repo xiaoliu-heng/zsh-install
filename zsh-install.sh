@@ -1,11 +1,7 @@
 #!/bin/bash
-user=`whoami`
-if [[ $user != 'root' ]]; then
-	echo 'Your Password: ' | su root
-fi
 
-apt update
-apt install curl zsh wget
+sudo apt update
+sudo apt install curl zsh wget -y
 cd ~
 mkdir .antigen
 curl -L git.io/antigen > ~/.antigen/antigen.zsh
