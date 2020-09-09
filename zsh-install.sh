@@ -9,7 +9,7 @@ apt install curl zsh wget
 cd ~
 mkdir .antigen
 curl -L git.io/antigen > ~/.antigen/antigen.zsh
-wget https://raw.githubusercontent.com/heng19970427/zsh-install/master/zshrc -O ~/.zshrc
+wget https://raw.githubusercontent.com/xiaoliu-heng/zsh-install/master/zshrc -O ~/.zshrc
 
 # If this user's login shell is not already "zsh", attempt to switch.
 TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
