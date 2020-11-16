@@ -5,6 +5,11 @@ has() {
   type "$1" > /dev/null 2>&1
 }
 
+activate() {
+  env zsh
+  source ~/.zshrc
+}
+
 switch_to_zsh() {
   # If this user's login shell is not already "zsh", attempt to switch.
   TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
@@ -13,6 +18,7 @@ switch_to_zsh() {
     if hash chsh >/dev/null 2>&1; then
       printf "Time to change your default shell to zsh!\n"
       chsh -s $(grep /zsh$ /etc/shells | tail -1)
+      activate
     # Else, suggest the user do so manually.
     else
       printf "I can't change your shell automatically because this system does not have chsh.\n"
@@ -20,8 +26,7 @@ switch_to_zsh() {
     fi
   else
     echo 'You are alreday using zsh, active the plugins ...'
-    env zsh
-    source ~/.zshrc
+    activate
   fi
 }
 
