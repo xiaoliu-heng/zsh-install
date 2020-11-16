@@ -5,7 +5,7 @@ has() {
   type "$1" > /dev/null 2>&1
 }
 
-function switch_to_zsh () {
+switch_to_zsh() {
   # If this user's login shell is not already "zsh", attempt to switch.
   TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
   if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
@@ -23,8 +23,7 @@ function switch_to_zsh () {
   env zsh
 }
 
-function install () 
-{
+install() {
   if has curl;then
     mkdir -p ~/.antigen
     curl -L git.io/antigen > ~/.antigen/antigen.zsh
@@ -39,11 +38,11 @@ function install ()
   fi
 }
 
-if has zsh;then
+if [ has zsh ] && [ has git ];then
   install
   switch_to_zsh
 else
-  echo 'You need to install zsh first!'
-  echo 'Mac -> brew install zsh'
-  echo 'Ubuntu/Debian -> sudo apt install zsh'
+  echo 'You need to install zsh and git first!'
+  echo 'Mac -> brew install zsh git'
+  echo 'Ubuntu/Debian -> sudo apt install zsh git'
 fi
