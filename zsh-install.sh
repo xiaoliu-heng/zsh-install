@@ -18,29 +18,34 @@ switch_to_zsh() {
       printf "I can't change your shell automatically because this system does not have chsh.\n"
       printf "Please manually change your default shell to zsh!\n"
     fi
+  else
+    echo 'You are alreday using zsh, active the plugins ...'
+    env zsh
+    source ~/.zshrc
   fi
-
-  env zsh
 }
 
 install() {
   if has curl;then
+    echo 'using curl to download'
     mkdir -p ~/.antigen
     curl -L git.io/antigen > ~/.antigen/antigen.zsh
     curl -L raw.githubusercontent.com/xiaoliu-heng/zsh-install/master/zshrc > ~/.zshrc
+    switch_to_zsh
   elif has wget;then
+    echo 'using wget to download'
     mkdir -p ~/.antigen
     wget https://git.io/antigen -O ~/.antigen/antigen.zsh
     wget https://raw.githubusercontent.com/xiaoliu-heng/zsh-install/master/zshrc -O ~/.zshrc
+    switch_to_zsh
   else
     echo "You need to install wget or curl to run this script!"
     exit 1
   fi
 }
 
-if [ has zsh ] && [ has git ];then
+if has zsh && has git;then
   install
-  switch_to_zsh
 else
   echo 'You need to install zsh and git first!'
   echo 'Mac -> brew install zsh git'
