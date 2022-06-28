@@ -1,5 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
+ANTIGEN_URL="https://github.com/zsh-users/antigen/releases/latest/download/antigen.zsh"
+ZSHRC_URL="https://raw.github.com/xiaoliu-heng/zsh-install/master/zshrc"
 
 has() {
   type "$1" > /dev/null 2>&1
@@ -34,14 +36,14 @@ install() {
   if has curl;then
     echo 'using curl to download'
     mkdir -p ~/.antigen
-    curl -L git.io/antigen > ~/.antigen/antigen.zsh
-    curl -L raw.githubusercontent.com/xiaoliu-heng/zsh-install/master/zshrc > ~/.zshrc
+    curl -L $ANTIGEN_URL > ~/.antigen/antigen.zsh
+    curl -L $ZSHRC_URL > ~/.zshrc
     switch_to_zsh
   elif has wget;then
     echo 'using wget to download'
     mkdir -p ~/.antigen
-    wget https://git.io/antigen -O ~/.antigen/antigen.zsh
-    wget https://raw.githubusercontent.com/xiaoliu-heng/zsh-install/master/zshrc -O ~/.zshrc
+    wget $ANTIGEN_URL -O ~/.antigen/antigen.zsh
+    wget $ZSHRC_URL -O ~/.zshrc
     switch_to_zsh
   else
     echo "You need to install wget or curl to run this script!"
