@@ -3,5 +3,5 @@
 ## Usage
 
 ```sh
-curl -L https://raw.githubusercontent.com/xiaoliu-heng/zsh-install/master/zsh-install.sh | bash
+curl -L https://raw.github.com/xiaoliu-heng/zsh-install/master/zsh-install.sh | bash
 ```
