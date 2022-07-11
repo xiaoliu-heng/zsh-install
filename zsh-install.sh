@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ANTIGEN_URL="https://github.com/zsh-users/antigen/releases/latest/download/antigen.zsh"
+ANTIGEN_URL="git.io/antigen"
 ZSHRC_URL="https://raw.github.com/xiaoliu-heng/zsh-install/master/zshrc"
 
 has() {
